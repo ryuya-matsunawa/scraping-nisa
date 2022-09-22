@@ -109,8 +109,7 @@ def save_to_spreadsheet(result):
     spreadsheet_id = os.getenv('SPREADSHEET_ID', '')
 
     # 2つのAPIを記述しないとリフレッシュトークンを3600秒毎に発行し続けなければならない
-    scope = ['https://spreadsheets.google.com/feeds',
-             'https://www.googleapis.com/auth/drive']
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
     # 認証情報設定
     # ダウンロードしたjsonファイル名をクレデンシャル変数に設定（秘密鍵、Pythonファイルから読み込みしやすい位置に置く）
