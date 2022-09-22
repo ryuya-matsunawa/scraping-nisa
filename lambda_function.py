@@ -103,7 +103,6 @@ def get_data_from_sbi(driver):
         driver.quit()
         return result
 
-
 def save_to_spreadsheet(result):
     sbi_spreadsheet_json = os.getenv('SBI_SPREADSHEET_JSON', '')
     spreadsheet_id = os.getenv('SPREADSHEET_ID', '')
@@ -123,8 +122,7 @@ def save_to_spreadsheet(result):
     worksheet = gc.open_by_key(spreadsheet_id).sheet1
     worksheet.append_row(result, value_input_option='USER_ENTERED')
 
-    return {'status': 204}
-
+    return { 'status': 204 }
 
 if __name__ == '__main__':
     lambda_handler(event=None, context=None)
