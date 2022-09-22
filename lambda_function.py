@@ -84,8 +84,7 @@ def get_data_from_sbi(driver):
         soup = BeautifulSoup(html, "html.parser")
 
         # 株式
-        table_data = soup.find('table', border="0",
-                               cellspacing="1", cellpadding="1", width="400")
+        table_data = soup.find('table', border="0", cellspacing="1", cellpadding="1", width="400")
         valuation_gains = table_data.find_all(
             'tr', align="right", bgcolor="#eaf4e8")
 
