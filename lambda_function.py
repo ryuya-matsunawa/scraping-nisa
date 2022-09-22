@@ -13,7 +13,6 @@ from bs4 import BeautifulSoup
 # ServiceAccountCredentials：Googleの各サービスへアクセスできるservice変数を生成します。
 from oauth2client.service_account import ServiceAccountCredentials
 
-
 def lambda_handler(event, context):
     """lambda_handler
     """
@@ -23,7 +22,6 @@ def lambda_handler(event, context):
     driver = connect_sbi()
     result = get_data_from_sbi(driver)
     save_to_spreadsheet(result)
-
 
 def connect_sbi():
     headless_chromium = os.getenv('HEADLESS_CHROMIUM', '')
@@ -44,7 +42,6 @@ def connect_sbi():
     driver.get('https://www.sbisec.co.jp/ETGate/')
 
     return driver
-
 
 def get_data_from_sbi(driver):
     user_name = os.getenv('USERNAME', '')
@@ -71,8 +68,7 @@ def get_data_from_sbi(driver):
             print('お知らせあり')
 
         # ポートフォリオの画面に遷移
-        driver.find_element_by_xpath(
-            '//*[@id="link02M"]/ul/li[3]/a/img').click()
+        driver.find_element_by_xpath('//*[@id="link02M"]/ul/li[3]/a/img').click()
 
         # 遷移するまで待つ
         time.sleep(4)
